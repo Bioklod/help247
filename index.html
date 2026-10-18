@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>help247.lt — pagalba kelyje 24/7</title>
+<meta name="description" content="help247.lt — kuriama programėlė, kuri greitai sujungia vairuotojus su pagalbos kelyje paslaugų teikėjais visoje Lietuvoje. Jau netrukus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e1116; --bg2:#161b22; --card:#1c222b; --line:#2a313c;
+    --text:#f2f4f7; --muted:#9aa4b2; --accent:#ffb020; --accent2:#ff6b35; --ok:#3ddc84;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--text)}
+  body{font-family:'Manrope',system-ui,-apple-system,sans-serif;line-height:1.55;min-height:100vh;
+    background:
+      radial-gradient(900px 500px at 85% -10%, rgba(255,176,32,.14), transparent 60%),
+      radial-gradient(700px 400px at -10% 110%, rgba(255,107,53,.12), transparent 60%),
+      var(--bg);}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  header{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.3px}
+  .logo-mark{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));color:#111;font-size:18px}
+  .logo span{color:var(--accent)}
+  .pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--muted);
+    border:1px solid var(--line);padding:6px 12px;border-radius:999px;background:var(--bg2)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(255,176,32,.6);animation:pulse 2s infinite}
+  @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(255,176,32,0)}100%{box-shadow:0 0 0 0 rgba(255,176,32,0)}}
+
+  .hero{padding:56px 0 40px;display:grid;gap:40px;grid-template-columns:1.2fr 1fr;align-items:center}
+  h1{font-size:clamp(34px,6vw,58px);line-height:1.05;letter-spacing:-1.5px;font-weight:800}
+  h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--muted);font-size:18px;margin:20px 0 28px;max-width:520px}
+  .status{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+  .status h3{font-size:14px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:14px}
+  .bar{height:10px;background:var(--bg2);border-radius:999px;overflow:hidden;margin-bottom:18px}
+  .bar i{display:block;height:100%;width:62%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:999px}
+  .steps{list-style:none;display:grid;gap:12px}
+  .steps li{display:flex;gap:12px;align-items:center;font-size:15px}
+  .ic{width:24px;height:24px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:13px;font-weight:800}
+  .done .ic{background:rgba(61,220,132,.15);color:var(--ok)}
+  .now .ic{background:rgba(255,176,32,.15);color:var(--accent)}
+  .next .ic{background:var(--bg2);color:var(--muted);border:1px solid var(--line)}
+  .next{color:var(--muted)}
+  .now b{color:var(--accent);font-weight:600;font-size:12px;margin-left:auto}
+
+  .phone{justify-self:center;width:250px;height:500px;border-radius:38px;background:#05070a;border:8px solid #222831;
+    position:relative;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .screen{position:absolute;inset:0;background:linear-gradient(180deg,#1a2029,#0f1318);padding:40px 18px 18px;display:flex;flex-direction:column;gap:12px}
+  .map{flex:1;border-radius:16px;background:
+      repeating-linear-gradient(0deg,transparent 0 28px,rgba(255,255,255,.04) 28px 29px),
+      repeating-linear-gradient(90deg,transparent 0 28px,rgba(255,255,255,.04) 28px 29px),#141a21;position:relative}
+  .pin{position:absolute;width:16px;height:16px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(255,176,32,.2)}
+  .pin.me{background:var(--ok);box-shadow:0 0 0 6px rgba(61,220,132,.2)}
+  .route{position:absolute;left:38%;top:30%;width:34%;height:34%;border-left:2px dashed var(--accent);border-bottom:2px dashed var(--accent);border-bottom-left-radius:30px}
+  .sos{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#111;font-weight:800;text-align:center;padding:14px;border-radius:14px;font-size:15px}
+  .mini{background:var(--card);border-radius:12px;padding:10px 12px;font-size:12px;color:var(--muted)}
+  .mini strong{color:var(--text);display:block;font-size:13px}
+
+  .features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:30px 0 60px}
+  .f{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .f .e{font-size:24px;margin-bottom:10px}
+  .f h4{font-size:16px;margin-bottom:6px}
+  .f p{color:var(--muted);font-size:14px}
+
+  .cta{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px;text-align:center;margin-bottom:60px}
+  .cta h2{font-size:26px;letter-spacing:-.5px;margin-bottom:8px}
+  .cta p{color:var(--muted);margin-bottom:18px}
+  .btn{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#111;font-weight:800;
+    text-decoration:none;padding:14px 26px;border-radius:12px}
+  footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;padding-top:30px}
+    .phone{width:220px;height:440px}
+    .features{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:480px){
+    .features{grid-template-columns:1fr}
+    .lead{font-size:16px}
+    header .pill{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo"><div class="logo-mark">⚡</div>help<span>247</span>.lt</div>
+    <div class="pill"><span class="dot"></span>Programėlė kuriama</div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="pill" style="margin-bottom:18px"><span class="dot"></span>Jau netrukus</div>
+      <h1>Pagalba kelyje.<br><em>Bet kada. Bet kur.</em></h1>
+      <p class="lead">Kuriame programėlę, kuri per kelias minutes sujungs vairuotoją, patekusį į bėdą, su artimiausiu pagalbos kelyje paslaugų teikėju. Evakuatorius, automobilio užvedimas, padangos keitimas ir kitos paslaugos — visoje Lietuvoje, 24/7.</p>
+
+      <div class="status">
+        <h3>Kūrimo eiga</h3>
+        <div class="bar"><i></i></div>
+        <ul class="steps">
+          <li class="done"><span class="ic">✓</span>Idėja ir paslaugos koncepcija</li>
+          <li class="done"><span class="ic">✓</span>Programėlės dizainas</li>
+          <li class="now"><span class="ic">●</span>Programėlės logikos ir duomenų bazės kūrimas <b>Vyksta dabar</b></li>
+          <li class="next"><span class="ic">4</span>Testavimas su vairuotojais ir paslaugų teikėjais</li>
+          <li class="next"><span class="ic">5</span>Paleidimas „App Store“ ir „Google Play“ parduotuvėse</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phone" aria-hidden="true">
+      <div class="screen">
+        <div class="mini"><strong>Pagalba pakeliui</strong>Atvyks po maždaug 12 min.</div>
+        <div class="map">
+          <div class="route"></div>
+          <div class="pin" style="left:36%;top:27%"></div>
+          <div class="pin me" style="left:70%;top:62%"></div>
+        </div>
+        <div class="sos">SOS — kviesti pagalbą</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="f"><div class="e">📍</div><h4>Vienu paspaudimu</h4><p>Nurodote vietą ir gedimą — užklausa iš karto pasiekia artimiausius paslaugų teikėjus.</p></div>
+    <div class="f"><div class="e">💬</div><h4>Pasiūlymai realiuoju laiku</h4><p>Gaunate kelis pasiūlymus su kaina ir atvykimo laiku, o tinkamiausią išsirenkate patys.</p></div>
+    <div class="f"><div class="e">🛰️</div><h4>Sekimas žemėlapyje</h4><p>Matote, kur yra pagalba ir kada ji atvyks.</p></div>
+    <div class="f"><div class="e">💳</div><h4>Saugus atsiskaitymas</h4><p>Atsiskaitymas programėlėje ir įvertinimai po kiekvienos suteiktos paslaugos.</p></div>
+  </section>
+
+  <section class="cta">
+    <h2>Programėlė jau pakeliui</h2>
+    <p>Šiuo metu intensyviai dirbame, kad pagalba kelyje būtų greita, aiški ir patikima. Užsukite netrukus — čia paskelbsime paleidimo datą.</p>
+  </section>
+
+  <footer>
+    <span>© 2026 help247.lt</span>
+    <span>Programėlė ruošiama — sekite naujienas!</span>
+  </footer>
+</div>
+</body>
+</html>
