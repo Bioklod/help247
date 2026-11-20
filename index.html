@@ -3,8 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>help247.lt — pagalba kelyje 24/7</title>
-<meta name="description" content="help247.lt — kuriama programėlė, kuri greitai sujungia vairuotojus su pagalbos kelyje paslaugų teikėjais visoje Lietuvoje. Jau netrukus.">
+<title>Pagalba kelyje 24/7: evakuatorius, užvedimas | help247.lt</title>
+<meta name="description" content="Programėlė, kuri visoje Lietuvoje greitai sujungs vairuotoją su evakuatoriumi ar kita pagalba kelyje: užvedimas, rato keitimas, kuro atvežimas, atrakinimas.">
+<link rel="canonical" href="https://help247.lt/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="lt_LT">
+<meta property="og:site_name" content="help247.lt">
+<meta property="og:url" content="https://help247.lt/">
+<meta property="og:title" content="help247.lt – pagalba kelyje 24/7 visoje Lietuvoje">
+<meta property="og:description" content="Evakuatorius, automobilio užvedimas, rato keitimas, kuro atvežimas ir kita pagalba kelyje vienoje programėlėje. Jau netrukus.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "help247.lt",
+      "url": "https://help247.lt/",
+      "areaServed": "Lietuva",
+      "description": "Pagalbos kelyje programėlė, jungianti vairuotojus su evakuatoriais ir kitais pagalbos kelyje paslaugų teikėjais visoje Lietuvoje."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Kada bus paleista help247 programėlė?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Šiuo metu kuriama programėlės logika ir duomenų bazė. Paleidimo datą paskelbsime help247.lt svetainėje, o programėlę bus galima parsisiųsti iš App Store ir Google Play."}},
+        {"@type": "Question", "name": "Kiek kainuos pagalba kelyje?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Kainą nurodo pats paslaugų teikėjas savo pasiūlyme, todėl ją matysite prieš patvirtindami užsakymą. Galėsite palyginti kelis pasiūlymus ir išsirinkti tinkamiausią."}},
+        {"@type": "Question", "name": "Kaip greitai atvyks pagalba?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Kiekviename pasiūlyme matysite numatomą atvykimo laiką, o patvirtinę užsakymą galėsite sekti pagalbininką žemėlapyje."}},
+        {"@type": "Question", "name": "Kaip tapti help247 gelbėtoju?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Jei teikiate pagalbos kelyje paslaugas, užpildykite formą skiltyje „Tapk help247 gelbėtoju“. Susisieksime su jumis prieš paleidžiant programėlę."}}
+      ]
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
@@ -72,6 +106,21 @@
   .cta p{color:var(--muted);margin-bottom:18px}
   .btn{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#111;font-weight:800;
     text-decoration:none;padding:14px 26px;border-radius:12px}
+  .sec{padding:10px 0 50px}
+  .sec h2{font-size:clamp(24px,3.5vw,32px);letter-spacing:-.5px;margin-bottom:8px}
+  .sec .sub{color:var(--muted);margin-bottom:22px;max-width:680px}
+  .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .svc .f h3{font-size:16px;margin-bottom:6px}
+  .cities{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .cities span{padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);font-size:14px}
+  .faq{display:grid;gap:10px;max-width:820px}
+  .faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .faq summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--accent);font-weight:800}
+  .faq details[open] summary::after{content:"–"}
+  .faq details p{color:var(--muted);margin-top:10px;font-size:15px}
+  .faq a{color:var(--accent)}
   .join{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px;margin-bottom:24px;scroll-margin-top:20px}
   .join h2{font-size:26px;letter-spacing:-.5px;margin-bottom:8px}
   .join .sub{color:var(--muted);margin-bottom:22px;max-width:640px}
@@ -103,9 +152,11 @@
     .hero{grid-template-columns:1fr;padding-top:30px}
     .phone{width:220px;height:440px}
     .features{grid-template-columns:1fr 1fr}
+    .svc{grid-template-columns:1fr 1fr}
   }
   @media (max-width:480px){
     .features{grid-template-columns:1fr}
+    .svc{grid-template-columns:1fr}
     .grid2{grid-template-columns:1fr;gap:0}
     .join{padding:22px}
     .join button{width:100%}
@@ -125,7 +176,7 @@
     <div>
       <div class="pill" style="margin-bottom:18px"><span class="dot"></span>Jau netrukus</div>
       <h1>Pagalba kelyje.<br><em>Bet kada. Bet kur.</em></h1>
-      <p class="lead">Kuriame programėlę, kuri per kelias minutes sujungs vairuotoją, patekusį į bėdą, su artimiausiu pagalbos kelyje paslaugų teikėju. Evakuatorius, automobilio užvedimas, padangos keitimas ir kitos paslaugos — visoje Lietuvoje, 24/7.</p>
+      <p class="lead">Kuriame programėlę, kuri per kelias minutes sujungs vairuotoją, patekusį į bėdą, su artimiausiu pagalbos kelyje paslaugų teikėju. Evakuatorius, automobilio užvedimas, rato keitimas ir kitos paslaugos — visoje Lietuvoje, 24/7.</p>
 
       <div class="status">
         <h3>Kūrimo eiga</h3>
@@ -158,6 +209,29 @@
     <div class="f"><div class="e">💬</div><h4>Pasiūlymai realiuoju laiku</h4><p>Gaunate kelis pasiūlymus su kaina ir atvykimo laiku, o tinkamiausią išsirenkate patys.</p></div>
     <div class="f"><div class="e">🛰️</div><h4>Sekimas žemėlapyje</h4><p>Matote, kur yra pagalba ir kada ji atvyks.</p></div>
     <div class="f"><div class="e">💳</div><h4>Saugus atsiskaitymas</h4><p>Atsiskaitymas programėlėje ir įvertinimai po kiekvienos suteiktos paslaugos.</p></div>
+  </section>
+
+  <section class="sec" id="paslaugos">
+    <h2>Kokią pagalbą kelyje galėsite iškviesti</h2>
+    <p class="sub">help247 programėlėje vienoje vietoje rasite artimiausius pagalbos kelyje paslaugų teikėjus. Nereikės ieškoti telefonų numerių ir skambinti keliems evakuatoriams iš eilės.</p>
+    <div class="svc">
+      <div class="f"><div class="e">🚚</div><h3>Evakuatorius ir tralas</h3><p>Sugedus automobiliui ar po eismo įvykio evakuatorius nugabens jį į servisą, namo ar kitą nurodytą vietą.</p></div>
+      <div class="f"><div class="e">🔋</div><h3>Automobilio užvedimas</h3><p>Išsikrovė akumuliatorius? Pagalbininkas atvyks ir padės užvesti automobilį.</p></div>
+      <div class="f"><div class="e">🛞</div><h3>Rato keitimas kelyje</h3><p>Pradūrėte padangą? Pagalba atvyks į vietą ir uždės atsarginį ratą.</p></div>
+      <div class="f"><div class="e">⛽</div><h3>Kuro atvežimas</h3><p>Baigėsi kuras pakelėje? Kurą atveš ten, kur sustojote.</p></div>
+      <div class="f"><div class="e">🔑</div><h3>Automobilio atrakinimas</h3><p>Raktai liko užrakintame automobilyje? Specialistas padės jį atrakinti.</p></div>
+      <div class="f"><div class="e">🔧</div><h3>Tempimas ir mobilus mechanikas</h3><p>Automobilį nutemps iki serviso, o smulkius gedimus mechanikas gali sutvarkyti vietoje.</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="lietuvoje">
+    <h2>Pagalba kelyje visoje Lietuvoje</h2>
+    <p class="sub">Programėlė veiks visoje Lietuvoje: mieste, užmiestyje ir magistralėse. Užklausa pasieks arčiausiai jūsų esančius paslaugų teikėjus, todėl pagalba atvyks greičiau.</p>
+    <div class="cities">
+      <span>Vilnius</span><span>Kaunas</span><span>Klaipėda</span><span>Šiauliai</span><span>Panevėžys</span><span>Alytus</span>
+      <span>Marijampolė</span><span>Utena</span><span>Telšiai</span><span>Tauragė</span><span>Druskininkai</span><span>Palanga</span>
+      <span>A1 Vilnius–Kaunas–Klaipėda</span><span>Via Baltica</span>
+    </div>
   </section>
 
   <section class="join" id="gelbetojams">
@@ -213,6 +287,16 @@
       <button type="submit" id="joinBtn">Siųsti paraišką</button>
       <div class="msg" id="joinMsg" role="status" aria-live="polite"></div>
     </form>
+  </section>
+
+  <section class="sec" id="duk">
+    <h2>Dažniausi klausimai</h2>
+    <div class="faq">
+      <details><summary>Kada bus paleista help247 programėlė?</summary><p>Šiuo metu kuriama programėlės logika ir duomenų bazė. Paleidimo datą paskelbsime šioje svetainėje, o programėlę bus galima parsisiųsti iš App Store ir Google Play.</p></details>
+      <details><summary>Kiek kainuos pagalba kelyje?</summary><p>Kainą nurodo pats paslaugų teikėjas savo pasiūlyme, todėl ją matysite prieš patvirtindami užsakymą. Galėsite palyginti kelis pasiūlymus ir išsirinkti tinkamiausią.</p></details>
+      <details><summary>Kaip greitai atvyks pagalba?</summary><p>Kiekviename pasiūlyme matysite numatomą atvykimo laiką, o patvirtinę užsakymą galėsite sekti pagalbininką žemėlapyje.</p></details>
+      <details><summary>Kaip tapti help247 gelbėtoju?</summary><p>Jei teikiate pagalbos kelyje paslaugas, užpildykite <a href="#gelbetojams">formą gelbėtojams</a>. Susisieksime su jumis prieš paleidžiant programėlę.</p></details>
+    </div>
   </section>
 
   <section class="cta">
