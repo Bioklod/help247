@@ -72,6 +72,31 @@
   .cta p{color:var(--muted);margin-bottom:18px}
   .btn{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#111;font-weight:800;
     text-decoration:none;padding:14px 26px;border-radius:12px}
+  .join{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px;margin-bottom:24px;scroll-margin-top:20px}
+  .join h2{font-size:26px;letter-spacing:-.5px;margin-bottom:8px}
+  .join .sub{color:var(--muted);margin-bottom:22px;max-width:640px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .fld{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+  .fld label,.fld .lbl{font-size:14px;font-weight:600}
+  .fld .req{color:var(--accent)}
+  .fld input,.fld textarea{font:inherit;color:var(--text);background:var(--bg2);border:1px solid var(--line);
+    border-radius:12px;padding:12px 14px;outline:none;width:100%}
+  .fld textarea{min-height:110px;resize:vertical}
+  .fld input:focus,.fld textarea:focus{border-color:var(--accent)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip input{position:absolute;opacity:0;pointer-events:none}
+  .chip span{display:inline-block;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);
+    font-size:14px;cursor:pointer;user-select:none}
+  .chip input:checked+span{border-color:var(--accent);background:rgba(255,176,32,.14);color:var(--accent)}
+  .chip input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted);margin:4px 0 18px}
+  .consent input{margin-top:4px;accent-color:var(--accent);width:16px;height:16px;flex:none}
+  .join button{font:inherit;border:0;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#111;font-weight:800;padding:14px 26px;border-radius:12px}
+  .join button:disabled{opacity:.6;cursor:wait}
+  .msg{margin-top:14px;font-size:14px;font-weight:600}
+  .msg.ok{color:var(--ok)} .msg.err{color:var(--accent2)}
+  .hp{display:none}
   footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
   @media (max-width:860px){
@@ -81,6 +106,9 @@
   }
   @media (max-width:480px){
     .features{grid-template-columns:1fr}
+    .grid2{grid-template-columns:1fr;gap:0}
+    .join{padding:22px}
+    .join button{width:100%}
     .lead{font-size:16px}
     header .pill{display:none}
   }
@@ -132,6 +160,60 @@
     <div class="f"><div class="e">💳</div><h4>Saugus atsiskaitymas</h4><p>Atsiskaitymas programėlėje ir įvertinimai po kiekvienos suteiktos paslaugos.</p></div>
   </section>
 
+  <section class="join" id="gelbetojams">
+    <h2>Tapk help247 gelbėtoju</h2>
+    <p class="sub">Teikiate pagalbos kelyje paslaugas? Užpildykite formą: susisieksime su jumis prieš paleidžiant programėlę. Kviečiame ir fizinius asmenis, ir įmones.</p>
+
+    <form id="joinForm" novalidate>
+      <!-- Web3Forms prieigos raktas (viešas, paraiškos siunčiamos į el. paštą) -->
+      <input type="hidden" name="access_key" value="05ee55d0-72cb-4b66-a0fe-37c8d7214816">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+      <div class="grid2">
+        <div class="fld">
+          <label for="f-name">Vardas, pavardė arba įmonės pavadinimas <span class="req">*</span></label>
+          <input id="f-name" name="vardas" type="text" autocomplete="name" required>
+        </div>
+        <div class="fld">
+          <label for="f-email">El. paštas <span class="req">*</span></label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="fld">
+          <label for="f-phone">Telefonas</label>
+          <input id="f-phone" name="telefonas" type="tel" autocomplete="tel" placeholder="+370">
+        </div>
+        <div class="fld">
+          <label for="f-region">Miestas ar regionas, kuriame dirbate <span class="req">*</span></label>
+          <input id="f-region" name="regionas" type="text" placeholder="pvz. Kaunas ir apylinkės" required>
+        </div>
+      </div>
+
+      <div class="fld">
+        <span class="lbl">Kokias paslaugas teikiate? <span class="req">*</span></span>
+        <div class="chips" id="services">
+          <label class="chip"><input type="checkbox" value="Evakuatorius / tempimas"><span>Evakuatorius / tempimas</span></label>
+          <label class="chip"><input type="checkbox" value="Automobilio užvedimas"><span>Automobilio užvedimas</span></label>
+          <label class="chip"><input type="checkbox" value="Padangų keitimas"><span>Padangų keitimas</span></label>
+          <label class="chip"><input type="checkbox" value="Kuro atvežimas"><span>Kuro atvežimas</span></label>
+          <label class="chip"><input type="checkbox" value="Mobilus mechanikas"><span>Mobilus mechanikas</span></label>
+          <label class="chip"><input type="checkbox" value="Automobilio atrakinimas"><span>Automobilio atrakinimas</span></label>
+          <label class="chip"><input type="checkbox" value="Kita"><span>Kita</span></label>
+        </div>
+      </div>
+
+      <div class="fld">
+        <label for="f-comment">Papildomi komentarai</label>
+        <textarea id="f-comment" name="komentarai" placeholder="Pvz. kiek turite transporto priemonių, darbo laikas ar kita svarbi informacija"></textarea>
+      </div>
+
+      <label class="consent"><input type="checkbox" id="f-consent" required>
+        <span>Sutinku, kad help247.lt naudotų mano pateiktus duomenis susisiekti su manimi dėl bendradarbiavimo.</span></label>
+
+      <button type="submit" id="joinBtn">Siųsti paraišką</button>
+      <div class="msg" id="joinMsg" role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
   <section class="cta">
     <h2>Programėlė jau pakeliui</h2>
     <p>Šiuo metu intensyviai dirbame, kad pagalba kelyje būtų greita, aiški ir patikima. Užsukite netrukus — čia paskelbsime paleidimo datą.</p>
@@ -142,5 +224,43 @@
     <span>Programėlė ruošiama — sekite naujienas!</span>
   </footer>
 </div>
+<script>
+(function(){
+  var form=document.getElementById('joinForm'), btn=document.getElementById('joinBtn'), msg=document.getElementById('joinMsg');
+  function show(t,ok){msg.textContent=t;msg.className='msg '+(ok?'ok':'err');}
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    var g=function(n){return (form.elements[n].value||'').trim();};
+    var services=[].map.call(document.querySelectorAll('#services input:checked'),function(c){return c.value;});
+    if(!g('vardas')) return show('Įrašykite vardą, pavardę arba įmonės pavadinimą.');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(g('email'))) return show('Įrašykite teisingą el. pašto adresą.');
+    if(!g('regionas')) return show('Nurodykite miestą ar regioną.');
+    if(!services.length) return show('Pažymėkite bent vieną paslaugą.');
+    if(!document.getElementById('f-consent').checked) return show('Pažymėkite sutikimą, kad galėtume su jumis susisiekti.');
+    if(g('access_key')==='IKLIJUOK_RAKTA_CIA') return show('Forma dar neprijungta: trūksta Web3Forms rakto.');
+    var data={
+      access_key:g('access_key'),
+      subject:'Nauja gelbėtojo paraiška: '+g('vardas'),
+      from_name:'help247.lt forma',
+      botcheck:form.elements.botcheck.checked,
+      'Vardas / įmonė':g('vardas'),
+      email:g('email'),
+      'Telefonas':g('telefonas')||'—',
+      'Miestas / regionas':g('regionas'),
+      'Paslaugos':services.join(', '),
+      'Komentarai':g('komentarai')||'—'
+    };
+    btn.disabled=true; show('Siunčiama…',true);
+    try{
+      var r=await fetch('https://api.web3forms.com/submit',{method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+      var j=await r.json();
+      if(j.success){form.reset();show('Ačiū! Paraiška gauta, netrukus su jumis susisieksime.',true);}
+      else show('Nepavyko išsiųsti. Bandykite dar kartą vėliau.');
+    }catch(err){show('Nepavyko išsiųsti. Patikrinkite interneto ryšį ir bandykite dar kartą.');}
+    btn.disabled=false;
+  });
+})();
+</script>
 </body>
 </html>
